@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "dependencies": {
     "dotenv": "^16.4.7",
     "node-fetch": "^3.3.2",
@@ -8,5 +9,15 @@
   },
   "resolutions": {
     "node-fetch": "^3.0.0"
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["model.js"]
+    }
+  ],
+  "host_permissions": [
+    "https://api.openai.com/"
+  ]
+  
 }
