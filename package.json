@@ -12,12 +12,15 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["model.js"]
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "model.js"
+      ]
     }
   ],
   "host_permissions": [
     "https://api.openai.com/"
   ]
-  
 }
