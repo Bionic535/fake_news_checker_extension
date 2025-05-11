@@ -5,9 +5,13 @@
     "manifest_version": 3,
     "author": "Lachlan Bruce",
     "action":{
-        "default_popup": "index.html"
+        "default_popup": "index.html",
+        "default_popup_width": 800,
+        "default_popup_height": 600
     },
     "content_security_policy": {
         "extension_pages": "script-src 'self'; object-src 'self'; connect-src 'self' https://api.openai.com"
     }
+
+    
 }

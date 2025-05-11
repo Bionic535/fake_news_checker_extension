@@ -1,23 +1,25 @@
-console.clear()
-import dotenv from 'dotenv';
-import OpenAI from 'openai';
-dotenv.config();
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+console.clear();
+import { API_KEY } from './config.js';
+console.log("api", API_KEY);
 
-export async function check() {
-    const completion = await openai.chat.completions.create({
-        model: "gpt-4o-mini",
-        messages: [
-            { role: "system", content: "You are a helpful assistant." },
-            {
-                role: "user",
-                content: "is forbes a legit news source",
+
+async function gpt(prompt) {
+    
+
+        const response = await fetch("https://api.openai.com/v1/chat/completions", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${API_KEY}`
             },
-        ],
-        store: true,
-    });
-
-    console.log(completion.choices[0].message.content);
+            body: JSON.stringify({
+                model: "gpt-4",
+                messages: [{role: "user", content: prompt}],
+                temperature: 0 // deterministic output
+            })
+        });
+    const result = await response.json();
+    return result.choices[0].message.content;
 }
-
-check();
+const result = await gpt("what is 1+1");
+console.log(result)

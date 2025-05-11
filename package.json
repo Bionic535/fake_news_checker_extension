@@ -16,7 +16,8 @@
         "<all_urls>"
       ],
       "js": [
-        "model.js"
+        "model.js",
+        "config.js"
       ]
     }
   ],
