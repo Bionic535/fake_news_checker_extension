@@ -1,6 +1,5 @@
 console.clear();
 import { API_KEY } from './config.js';
-console.log("api", API_KEY);
 
 
 async function gpt(prompt) {
@@ -23,3 +22,5 @@ async function gpt(prompt) {
 }
 const result = await gpt("what is 1+1");
 console.log(result)
+document.getElementById('news_source').value = result;
+document.getElementById('article').value = result;
