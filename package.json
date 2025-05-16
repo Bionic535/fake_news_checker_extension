@@ -10,6 +10,12 @@
   "resolutions": {
     "node-fetch": "^3.0.0"
   },
+  "permissions": [
+    "tabs"
+  ],
+  "action": {
+    "default_popup": "index.html"
+  },
   "content_scripts": [
     {
       "matches": [
@@ -22,6 +28,7 @@
     }
   ],
   "host_permissions": [
-    "https://api.openai.com/"
+    "https://api.openai.com/",
+    "<all_urls>"
   ]
 }

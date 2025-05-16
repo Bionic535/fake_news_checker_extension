@@ -20,6 +20,20 @@ async function gpt(prompt) {
     const result = await response.json();
     return result.choices[0].message.content;
 }
+
+
+//getting url
+document.getElementById('btn').addEventListener('click', () => {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+        const url = tabs[0].url;
+        console.log(url)
+    });
+});
+
+
+
+
+
 const result = await gpt("what is 1+1");
 console.log(result)
 document.getElementById('news_source').value = result;
